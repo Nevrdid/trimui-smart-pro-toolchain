@@ -29,6 +29,9 @@ RUN apt-get -y update && apt-get -y install \
     libexpat-dev \
     zlib1g-dev \
     libcurl4-openssl-dev \
+    python3-pip \
+    ninja-build \
+    meson \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /root/workspace

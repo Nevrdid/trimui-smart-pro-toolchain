@@ -1,0 +1,27 @@
+[constants]
+toolchain = '/opt/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu'
+common_flags = ['-march=armv8-a+crc+crypto+simd', '-mtune=cortex-a53', '--sysroot=' + toolchain / 'sysroot']
+
+[binaries]
+c = toolchain / 'bin/aarch64-none-linux-gnu-gcc'
+cpp = toolchain / 'bin/aarch64-none-linux-gnu-g++'
+ld = toolchain / 'bin/aarch64-none-linux-gnu-ld'
+ar = toolchain /  'bin/aarch64-none-linux-gnu-gcc-ar'
+strip = toolchain / 'bin/aarch64-none-linux-gnu-strip'
+
+
+[built-in options]
+prefix= toolchain / 'sysroot/usr'
+includedir = toolchain / 'sysroot/usr/include'
+libdir = toolchain / 'sysroot/usr/lib'
+c_args = common_flags
+c_link_args = common_flags
+cpp_args = common_flags
+cpp_link_args = common_flags
+
+[host_machine]
+system = 'linux'
+cpu_family = 'aarch64'
+cpu = 'aarch64'
+endian = 'little'
+

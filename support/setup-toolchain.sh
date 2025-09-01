@@ -40,5 +40,6 @@ mkdir build && cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=/opt/toolchain.cmake .. && make -j"$(nproc)" && make install
 
 cd /opt
+python3 -m pip install meson --upgrade
 
 rm -f "${TOOLCHAIN_TAR}" "${SYSROOT_TAR}" "${SDL2_TAR}" "${CMAKE41_TAR}"
