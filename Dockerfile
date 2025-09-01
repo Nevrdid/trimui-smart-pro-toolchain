@@ -21,6 +21,13 @@ RUN apt-get -y update && apt-get -y install \
 	unzip \
 	wget \
 	zip \
+    curl \
+    libuv1-dev \
+    libarchive-dev \
+    nghttp2 \
+    libexpat-dev \
+    zlib1g-dev \
+    libcurl4-openssl-dev \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /root/workspace

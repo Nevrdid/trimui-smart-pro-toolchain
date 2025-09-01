@@ -16,7 +16,7 @@ endmacro()
 
 get_filename_component(prefix "${CMAKE_CURRENT_LIST_DIR}/../../.." ABSOLUTE)
 
-set(prefix "/opt/aarch64-linux-gnu-7.5.0-linaro/sysroot/usr")
+set(prefix "/opt/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/sysroot/usr")
 
 set(exec_prefix "${prefix}")
 set(bindir "${exec_prefix}/bin")

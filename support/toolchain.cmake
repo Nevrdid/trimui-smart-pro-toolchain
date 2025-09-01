@@ -1,0 +1,29 @@
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+
+set(TOOLCHAIN_ROOT /opt/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu)
+set(TRIPLET aarch64-none-linux-gnu)
+set(SYSROOT ${TOOLCHAIN_ROOT}/sysroot)
+set(CMAKE_INSTALL_PREFIX ${SYSROOT}/usr)
+
+set(CMAKE_C_COMPILER ${TOOLCHAIN_ROOT}/bin/${TRIPLET}-gcc)
+set(CMAKE_CXX_COMPILER ${TOOLCHAIN_ROOT}/bin/${TRIPLET}-g++)
+set(CMAKE_LINKER ${TOOLCHAIN_ROOT}/bin/${TRIPLET}-ld)
+set(CMAKE_LD ${TOOLCHAIN_ROOT}/bin/${TRIPLET}-ld)
+set(CMAKE_AR ${TOOLCHAIN_ROOT}/bin/${TRIPLET}-gcc-ar)
+set(CMAKE_RANLIB ${TOOLCHAIN_ROOT}/bin/${TRIPLET}-gcc-ranlib)
+
+set(CMAKE_FIND_ROOT_PATH ${SYSROOT})
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+
+set(COMMON_FLAGS "-march=armv8-a+crc+crypto+simd -mcpu=cortex-a53+crc -mtune=cortex-a53")
+
+set(CMAKE_C_FLAGS "${COMMON_FLAGS} --sysroot=${SYSROOT}" CACHE STRING "C compiler flags" FORCE)
+set(CMAKE_CXX_FLAGS "${COMMON_FLAGS} --sysroot=${SYSROOT}" CACHE STRING "C++ compiler flags" FORCE)
+set(CMAKE_ASM_FLAGS "${COMMON_FLAGS}" CACHE STRING "Assembler flags" FORCE)
+# useless ?? CMAKE_ASMFLAGS instead ?? 
+set(CMAKE_C_LINK_FLAGS "${COMMON_FLAGS} --sysroot=${SYSROOT}" CACHE STRING "" FORCE)
+set(CMAKE_CXX_LINK_FLAGS "${COMMON_FLAGS} --sysroot=${SYSROOT}" CACHE STRING "" FORCE)
+
